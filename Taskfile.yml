@@ -1,0 +1,22 @@
+# https://taskfile.dev
+
+version: "3"
+dotenv: [".env", ".taskfile/.env", "{{.HOME}}/.env", ".taskfile/.env.template"]
+
+includes:
+  vars:
+    taskfile: .taskfile/vars.yml
+    optional: true
+    flatten: true
+
+  init:
+    taskfile: .taskfile/init.yml
+    optional: true
+
+  git:
+    taskfile: .taskfile/git.yml
+    optional: true
+
+  go:
+    taskfile: .taskfile/go.yml
+    optional: true
