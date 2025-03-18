@@ -19,7 +19,7 @@ vars:
     sh: |
       _latest_tag=$(git tag --sort=-v:refname | head -n 1 2>/dev/null) || true
       if [[ "${_latest_tag}" == "" ]]; then
-          git tag v0.0.0 -m "init" 
+          git tag v0.0.0 -m "init" 2>/dev/null || true
           _latest_tag="v0.0.0";
       fi
       echo ${_latest_tag}
