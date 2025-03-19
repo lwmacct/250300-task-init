@@ -16,7 +16,3 @@ includes:
   git:
     taskfile: .taskfile/git.yml
     optional: true
-
-  go:
-    taskfile: .taskfile/go.yml
-    optional: true
