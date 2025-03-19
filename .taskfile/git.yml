@@ -55,3 +55,15 @@ tasks:
       - |
         git tag -a {{.GIT_TAG_NEXT}} -m "- {{.CLI_ARGS}}"
         git push origin {{.GIT_TAG_NEXT}}
+
+  deploy:keys:
+    desc: "设置并使用部署秘钥"
+    cmds:
+      - |
+        _path_keys=".taskfile/deploy/keys"
+        mkdir -p ${_path_keys}
+        if [[ ! -f "${_path_keys}/id_ed25519" ]]; then
+          ssh-keygen -t ed25519 -N '' -f ${_path_keys}/id_ed25519 -C "{{.GIT_PROJECT}}"
+        fi
+        git config push.autoSetupRemote true
+        git config core.sshCommand "ssh -i ${_path_keys}/id_ed25519 -o StrictHostKeyChecking=no -F /dev/null"

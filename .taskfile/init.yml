@@ -1,7 +1,0 @@
-version: "3"
-
-tasks:
-  default:
-    desc: "默认任务"
-    cmds:
-      - echo "Hello, World! init default"

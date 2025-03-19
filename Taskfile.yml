@@ -9,10 +9,6 @@ includes:
     optional: true
     flatten: true
 
-  init:
-    taskfile: .taskfile/init.yml
-    optional: true
-
   git:
     taskfile: .taskfile/git.yml
     optional: true
